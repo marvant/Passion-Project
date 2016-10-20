@@ -12,7 +12,8 @@ post '/listings' do
 
 	@listing = Listing.new(title: params[:name], address: params[:address], website: params[:website], phone: params[:phone], user_id: session[:user_id], category_id: @category.id)
 	@listing.save
-	redirect "/listings/#{@listing.id}"
+	redirect "/categories/#{@category.id}/listings/#{@listing.id}"
+
 end
 
 delete '/categories/:category_id/listings/:id' do 

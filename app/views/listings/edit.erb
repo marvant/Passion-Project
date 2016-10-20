@@ -1,0 +1,21 @@
+<div>
+<% if logged_in? %>
+	<div>
+	  	<form action="/categories/<%= @listing.category.id %>/listings/<%= @listing.id%>" method="post">
+
+	  	<input name="_method" type="hidden" value="put">
+
+	  	<input type="text" name="category" value="<%= @listing.category.name %>"/>
+	  	<input type="text" name="name"  value="<%= @listing.title %>"/>
+	    <input type="text" name="address" value="<%= @listing.address %>"/>
+	    <input type="text" name="website" value="<%= @listing.website %>" />
+	    <input type="text" name="phone" value="<%= @listing.phone %>" />
+	    <input type="submit" value="Submit"/>
+	  </form>
+	</div>
+
+
+<% else %>
+you are not logged in to post a listing.
+<% end %>
+</div>

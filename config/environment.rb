@@ -22,7 +22,7 @@ require 'erb'
 
 require 'json'
 require 'byebug'
-require 'bcrypt'
+
 
 require 'dotenv'
 Dotenv.load

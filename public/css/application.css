@@ -40,7 +40,14 @@ body {
   line-height: 10px;
   font-size: 2em;
 }
-
+.flex-item form {
+  height: 30px;
+  width: 40px;
+  color: blue;
+  margin-left: 65px;
+  margin-bottom: 5px;
+  font-size: 2em;
+}
 div.listing-box{
   width: 300px;
   height: 100px;

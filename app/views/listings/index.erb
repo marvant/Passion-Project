@@ -2,7 +2,7 @@
 
 <ul class="flex-container">
 	<% @listings.each do |listing|%>
-	  <li class="flex-item"><a href="<%="/categories/#{@category.id}/listings/#{listing.id}"%>"><%= listing.title %></a><br><%= listing.address %></li>
+	  <li class="flex-item"><a href="<%="/categories/#{@category.id}/listings/#{listing.id}"%>"><%= listing.title %></a>
 
 	<% end %>
 </ul>

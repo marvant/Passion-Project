@@ -1,8 +1,11 @@
 <h1 align="center"><%= @listing.title %></h1>
     <div align="center">
-    <%= @listing.address %><br>
-    <%= @listing.website %><br>
-    <%= @listing.phone %><br><br>
+    <ul class="flex-container">
+    <li class="flex-item"><a href=" <%= @listing.ebay %>">ebay</a></li><br>
+    <li class="flex-item"><a href="<%= @listing.amazon %>">amazon</a></li><br>
+    <li class="flex-item"><a href="<%= @listing.link3 %>">Craigslist</a></li><br>
+    <li class="flex-item"><a href="<%= @listing.link4 %>">link4</a></li><br>
+    </ul>
     </div>
 
 <head>
@@ -18,7 +21,7 @@
       <script>
         function initMap() {
           var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 8,
+            zoom: 10,
             center: {lat: -95.712891, lng: 37.09024}
          
           });
@@ -31,7 +34,7 @@
 
         function geocodeAddress(geocoder, resultsMap) {
 
-          var address = '<%= @listing.address %>'
+          var address = '<%= @listing.zip %>'
 
           geocoder.geocode({'address': address}, function(results, status) {
             if (status === 'OK') {

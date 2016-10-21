@@ -1,5 +1,7 @@
 get '/categories' do 
-	@categories = Category.all
+	@categories_none_sorted = Category.all
+  @categories = @categories_none_sorted.sort { |a,b| a.name.downcase <=> b.name.downcase }
+  # @users.sort! { |a,b| a.name.downcase <=> b.name.downcase }
 	erb :'/categories/index'
 end
 
@@ -29,4 +31,28 @@ get '/categories/:category_id/listings/:id' do
 
   erb :'listings/show'
 
+end
+
+
+get '/categories/new' do
+
+  erb :'categories/new' #show new categories view
+
+end
+
+
+post '/categories' do
+
+  #below works with properly formatted params in HTML form
+  @category = Category.new(name: params[:name], user_id: session[:user_id]) #create new category
+    if @category.save #saves new category or returns false if unsuccessful
+      if request.xhr?
+        erb :'/categories/_category', layout: false, locals: {:category => @category}
+      else
+        redirect '/categories' #redirect back to categories index page
+      end
+    else
+      erb :'categories/new' # show new categories view again(potentially displaying errors)
+
+  end
 end

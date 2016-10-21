@@ -1,24 +1,42 @@
 <div class="profile">
-Profile
-Name: <%= @user.name %>
-email: <%= @user.email %>
+
+	<h4>Profile:</h4>
+	Name: <%= @user.name %> | email: <%= @user.email %>
+
 </div>
 
+<div id="item-list">
+	<h3 align="center">Your Itmes</h3>
+	<p class="add-listing" align="center"><a href="/listings/new">Add a new item</a></p>
+	<ul class="flex-container">
+		<% @user_listings.each do |listing| %>
+		<li class="flex-item"><a href="<%="/categories/#{listing.category.id}/listings/#{listing.id}" %>"><%= listing.title %></a>
 
-<ul class="flex-container">
-<% @user_listings.each do |listing| %>
-<li class="flex-item"><a href="<%="/categories/#{listing.category.id}/listings/#{listing.id}"%>"> <%= listing.title %></a>
-<form action="<%="/categories/#{listing.category.id}/listings/#{listing.id}"%>" method="post">
-    <input name="_method" type="hidden" value="delete" />
-    <input type="submit" value="Delete"/>
+			<form action="<%="/categories/#{listing.category.id}/listings/#{listing.id}" %>" method="post">
+    			<input name="_method" type="hidden" value="delete" />
+    			<input type="submit" value="Delete"/>
 
-</form>
+			</form>
 
 
-<a href="<%="/categories/#{listing.category.id}/listings/#{listing.id}/edit"%>">Edit</a>
+			<a href="<%="/categories/#{listing.category.id}/listings/#{listing.id}/edit" %>">Edit</a>
 
-</form></li>
-<% end %>
-</ul>
+		</li>
+		<% end %>
+	</ul>
 
-<p class="add-listing" align="center"><a href="<%= "/listings/new" %>">Add a new listing</a></p>
+</div>
+<br>
+<div id="category-list">
+	<h3 align="center">Your Categories</h3>
+
+	<p class="add-listing" align="center"><a href="/categories/new">Add a new category</a></p>
+
+	<ul class="flex-container">
+		<% @user_categories.each do |category| %>
+		<li class="flex-item"><a href="<%="/categories/#{category.id}/listings" %>"><%= category.name %></a>
+
+
+		</li>
+		<% end %>
+	</ul>

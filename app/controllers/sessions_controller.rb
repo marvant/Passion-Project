@@ -17,7 +17,7 @@ post '/sessions' do
   else
     @errors = "Email and Password not found. Please try again."
     # redirect '/sessions/new'
-    erb :index
+    erb :'users/login'
   end
 end
  

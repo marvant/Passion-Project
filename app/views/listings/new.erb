@@ -1,9 +1,10 @@
 
-<h1>Enter and submit your business info</h1>
-<h2>note* need to add dropdown list for category or get the category id from param and pre fill the form. and hidden user id</h2>
 
 <div>
 <% if logged_in? %>
+<h1>Create your new listing</h1>
+
+	
 	<div>
 	  	<form class="new-listing-form" action="/listings" method="post">
 	  	<% if @category %>
@@ -11,17 +12,19 @@
 	  	<%else%>
 	  	<input type="text" name="category" placeholder="Pick a category">
 	  	<%end%>
-	  	<input type="text" name="name"  placeholder="Business name"/>
-	    <input type="text" name="address" placeholder="Address"/>
-	    <input type="text" name="website" placeholder="Website" />
-	    <input type="text" name="phone" placeholder="Phone" />
+	  	<input type="text" name="title"  placeholder="Title"/>
+	    <input type="text" name="ebay" placeholder="Ebay"/>
+	    <input type="text" name="amazon" placeholder="Amazon" />
+	    <input type="text" name="link3" placeholder="craigslist" />
+	    <input type="text" name="link4" placeholder="Link4" />
+	    <input type="text" name="zip" placeholder="Zip" />
 	    <input type="submit" value="Submit"/>
 	  </form>
 	</div>
 
 
 <% else %>
-you are not logged in to post a listing.
+<h3>To post your item, please <a href="/sessions/new">Login</a> first.</h3>
 <% end %>
 </div>
 

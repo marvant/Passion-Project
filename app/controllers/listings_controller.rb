@@ -10,7 +10,7 @@ end
 post '/listings' do
 	@category = Category.find_by_name(params[:category])
 
-	@listing = Listing.new(title: params[:name], address: params[:address], website: params[:website], phone: params[:phone], user_id: session[:user_id], category_id: @category.id)
+	@listing = Listing.new(title: params[:title], ebay: params[:ebay], amazon: params[:amazon], link3: params[:link3], link4: params[:link4],zip: params[:zip], user_id: session[:user_id], category_id: @category.id)
 	@listing.save
 	redirect "/categories/#{@category.id}/listings/#{@listing.id}"
 
@@ -52,7 +52,7 @@ put '/categories/:category_id/listings/:id' do
 
   @user_id = @listing.user.id
 
-  if @listing.update_attributes(category_id: params[:category_id], title: params[:name], address: params[:address], website: params[:website], phone: params[:phone])
+  if @listing.update_attributes(title: params[:title], ebay: params[:ebay], amazon: params[:amazon], link3: params[:link3], link4: params[:link4],zip: params[:zip], user_id: session[:user_id], category_id: @category.id)
 
     redirect "/users/#{@user_id}"
   else 

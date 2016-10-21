@@ -1,3 +1,15 @@
+.box{
+    display: none;
+    width: 100%;
+}
+
+a:hover + .box,.box:hover{
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+
+
 body {
   counter-reset:section;
   background-color: #F6F6EF;
@@ -6,11 +18,31 @@ body {
   margin: 0 auto;
 }
 @import "compass/css3";
+.flex-item a {
+  line-height: 2px;
+  font-size: 3em;
+  color: black;
+  top: 5px;
+  text-decoration: none;
+  margin-top: 1px;
+
+}
+.flex-item form {
+  height: 30px;
+  width: 40px;
+  color: blue;
+  margin-left: 65px;
+  margin-bottom: 5px;
+  font-size: 2em;
+  line-height: 1px;
+  margin-top: 1px;
+ 
+}
 .flex-container {
   padding: 0;
-  margin: 0;
+  margin: 5;
   list-style: none;
-  background: beige;
+  background: gray;
   
   display: -webkit-box;
   display: -moz-box;
@@ -23,31 +55,21 @@ body {
 }
 
 .flex-item {
-  background: tomato;
+  background: lightgray;
   padding: 5px;
   width: 200px;
   height: 150px;
   margin-top: 10px;
+  margin-bottom: 10px;
   
-  line-height: 50px;
-  color: white;
+  line-height: 75px;
+  color: lightgray;
   font-weight: bold;
   font-size: .5em;
   text-align: center;
 }
 
-.flex-item a {
-  line-height: 10px;
-  font-size: 2em;
-}
-.flex-item form {
-  height: 30px;
-  width: 40px;
-  color: blue;
-  margin-left: 65px;
-  margin-bottom: 5px;
-  font-size: 2em;
-}
+
 div.listing-box{
   width: 300px;
   height: 100px;
@@ -66,7 +88,7 @@ header a {
 }
 
 header {
-  background-color: tomato;
+  background-color: orange;
   padding: 5px 5px;
   overflow: auto;
 }
@@ -198,11 +220,11 @@ form#posts input[type='submit'] {
           
       }
       #map {
-        height: 90%;
+        height: 55%;
       }
       #floating-panel {
         position: absolute;
-        top: 10px;
+        top: 1px;
         left: 25%;
         z-index: 5;
         background-color: #fff;
@@ -212,5 +234,6 @@ form#posts input[type='submit'] {
         font-family: 'Roboto','sans-serif';
         line-height: 30px;
         padding-left: 10px;
+
       }
 

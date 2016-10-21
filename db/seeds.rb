@@ -10,9 +10,8 @@
 #   end
 # end
 
-Category.create(name: "Restaurant")
-Category.create(name: "Electronics")
-Category.create(name: "Accounting")
-Category.create(name: "Auto")
-User.create(name: "Marvan", email: "m@m.com", password: "m")
-Listing.create(title: "Test", address: "123 Main Ave, San Jose, Ca", website: "www.test.com", phone: "408-555-5555", user_id: 1, category_id: 4)
+
+# Category.create(name: "Electronics")
+# Category.create(name: "Auto")
+# User.create(name: "Marvan", email: "m@m.com", password: "m")
+

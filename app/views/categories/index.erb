@@ -1,9 +1,28 @@
 <h1 align="center">Categories</h1>
+<div class="partial">
 <ul class="flex-container">
 <% @categories.each do |category| %>
-<li class="flex-item"><a href="<%= "/categories/#{category.id}/listings" %>"><%= category.name %></a></li>
+<%= erb :'categories/_category', {layout: false, locals: { :category => category}} %>
 <% end %>
 </ul>
+</div>
 
+
+<div align="center">
+<% if logged_in? %>
+<h1>Create your new listing</h1>
+	<div>
+	  	<form class="new-category-form" action="/categories" method="post">
+	  	<input type="text" name="name"  placeholder="Name"/>
+	  
+	    <input type="submit" value="Submit"/>
+	  </form>
+	</div>
+
+
+<% else %>
+<h3>To add a category, please <a href="/sessions/new">Login</a> first.</h3>
+<% end %>
+</div>
 
 

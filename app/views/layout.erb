@@ -15,11 +15,13 @@
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
+  
 
   <title></title>
 </head>
 <body>
 <header>
+<div align="left"><a href="/">Home</a>
 <div class="nav-links">
   <% if logged_in? %>
     welcome <%= User.find(session[:user_id]).name %> | <a href="<%="/users/#{User.find(session[:user_id]).id}"%>">Profile</a> |

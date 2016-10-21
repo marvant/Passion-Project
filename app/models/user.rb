@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   # Remember to create a migration!
   has_many :listings
 
-  validates :email, :hashed_password, presence: true
+  validates :name, :email, :hashed_password, presence: true
   validates :email, uniqueness: true
 
   include BCrypt

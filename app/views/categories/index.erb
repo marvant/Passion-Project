@@ -1,6 +1,7 @@
-<ul>
+<h1 align="center">Categories</h1>
+<ul class="flex-container">
 <% @categories.each do |category| %>
-<li><a href="<%= "/categories/#{category.id}/listings" %>"><%= category.name %></a></li>
+<li class="flex-item"><a href="<%= "/categories/#{category.id}/listings" %>"><%= category.name %></a></li>
 <% end %>
 </ul>
 

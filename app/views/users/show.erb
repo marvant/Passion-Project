@@ -4,20 +4,13 @@ Name: <%= @user.name %>
 email: <%= @user.email %>
 </div>
 
-<div class="user-listings">
-<ul>
-<% @user_listings.each do |listing| %>
-<li><a href="<%="/categories/#{listing.category.id}/listings/#{listing.id}"%>"> <%= listing.title %></a>
-<form action="<%="/categories/#{listing.category.id}/listings/#{listing.id}"%>" method="post">
-    <input name="_method" type="hidden" value="delete" />
-    <button type="submit">Delete</button>
 
-</form>
+<ul class="flex-container">
+	<% @user_listings.each do |listing| %>
+		<li class="flex-item"><a href="<%="/categories/#{listing.category.id}/listings/#{listing.id}"%>"> <%= listing.title %></a><br>
+		<a href="<%="/categories/#{listing.category.id}/listings/#{listing.id}"%>">Delete</a><br>
+		<a href="<%="/categories/#{listing.category.id}/listings/#{listing.id}/edit"%>">Edit</a></li>
+	<% end %>
+</ul>
 
-
-<a href="<%="/categories/#{listing.category.id}/listings/#{listing.id}/edit"%>">Edit</a>
-
-</form></li>
-<% end %>
-</div>
-<p class="add-listing"><a href="<%= "/listings/new" %>">post a new listing</a></p>
+<p class="add-listing" align="center"><a href="<%= "/listings/new" %>">Add a new listing</a></p>

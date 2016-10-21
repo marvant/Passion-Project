@@ -1,9 +1,10 @@
 <h1 align="center"><%= @category.name %></h1>
-<ul>
-<% @listings.each do |listing|%>
-<li><a href="<%="/categories/#{@category.id}/listings/#{listing.id}"%>"> <%= listing.title %></a><br>
-<%= listing.address %></li>
-<% end %>
 
+<ul class="flex-container">
+	<% @listings.each do |listing|%>
+	  <li class="flex-item"><a href="<%="/categories/#{@category.id}/listings/#{listing.id}"%>"><%= listing.title %></a><br><%= listing.address %></li>
 
-<p class="add-listing"><a href="<%= "/categories/#{@category.id}/listings/new" %>">post a new listing</a></p>
+	<% end %>
+</ul>
+
+<p class="add-listing" align="center"><a href="<%= "/categories/#{@category.id}/listings/new" %>">Add a new listing</a></p>

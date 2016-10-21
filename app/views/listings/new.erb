@@ -1,0 +1,30 @@
+
+
+<div>
+<% if logged_in? %>
+<h1>Create your new listing</h1>
+
+	
+	<div>
+	  	<form class="new-listing-form" action="/listings" method="post">
+	  	<% if @category %>
+	  	<input type="text" name="category" value="<%="#{@category.name}"%>">
+	  	<%else%>
+	  	<input type="text" name="category" placeholder="Pick a category">
+	  	<%end%>
+	  	<input type="text" name="title"  placeholder="Title"/>
+	    <input type="text" name="ebay" placeholder="Ebay"/>
+	    <input type="text" name="amazon" placeholder="Amazon" />
+	    <input type="text" name="link3" placeholder="craigslist" />
+	    <input type="text" name="link4" placeholder="Link4" />
+	    <input type="text" name="zip" placeholder="Zip" />
+	    <input type="submit" value="Submit"/>
+	  </form>
+	</div>
+
+
+<% else %>
+<h3>To post your item, please <a href="/sessions/new">Login</a> first.</h3>
+<% end %>
+</div>
+

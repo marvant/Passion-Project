@@ -1,0 +1,57 @@
+<h1 align="center"><%= @listing.title %></h1>
+    <div align="center">
+    <ul class="flex-container">
+    <li class="flex-item"><a href=" <%= @listing.ebay %>">ebay</a></li><br>
+    <li class="flex-item"><a href="<%= @listing.amazon %>">amazon</a></li><br>
+    <li class="flex-item"><a href="<%= @listing.link3 %>">Craigslist</a></li><br>
+    <li class="flex-item"><a href="<%= @listing.link4 %>">link4</a></li><br>
+    </ul>
+    </div>
+
+<head>
+    <title>Geocoding service</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+</head>
+  <body>
+
+
+    <div id="map"></div>
+      <script>
+        function initMap() {
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            center: {lat: -95.712891, lng: 37.09024}
+         
+          });
+          var geocoder = new google.maps.Geocoder();
+
+            window.addEventListener('load', function(){
+            geocodeAddress(geocoder, map);
+          })
+          }
+
+        function geocodeAddress(geocoder, resultsMap) {
+
+          var address = '<%= @listing.zip %>'
+
+          geocoder.geocode({'address': address}, function(results, status) {
+            if (status === 'OK') {
+              resultsMap.setCenter(results[0].geometry.location);
+              var marker = new google.maps.Marker({
+                map: resultsMap,
+                position: results[0].geometry.location
+              });
+            } else {
+              alert('Geocode was not successful for the following reason: ' + status);
+            }
+          });
+        }
+      </script>
+
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['KEY']%>&callback=initMap">
+      </script>
+
+  </body>

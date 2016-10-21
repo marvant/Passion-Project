@@ -1,0 +1,24 @@
+<p></p>
+<div>
+<% if logged_in? %>
+	<div align="center">
+	  	<form action="/categories/<%= @listing.category.id %>/listings/<%= @listing.id%>" method="post">
+
+	  	<input name="_method" type="hidden" value="put">
+
+	  	Category: <input type="text" name="category" value="<%= @listing.category.name %>"/><br>
+	  	Title: <input type="text" name="title"  value="<%= @listing.title %>"/><br>
+	    Ebay: <input type="text" name="ebay" value="<%= @listing.ebay %>"/><br>
+	    Amazon: <input type="text" name="amazon" value="<%= @listing.amazon %>" /><br>
+	    Craigslist: <input type="text" name="link3" value="<%= @listing.link3 %>" /><br>
+	    Link 4:<input type="text" name="link4" value="<%= @listing.link4 %>" /><br>
+	    Zip: <input type="text" name="zip" value="<%= @listing.zip %>" /><br>
+	    <input type="submit" value="Submit"/><br>
+	  </form>
+	</div>
+
+
+<% else %>
+you are not logged in to post a listing.
+<% end %>
+</div>
